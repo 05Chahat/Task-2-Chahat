@@ -1,17 +1,12 @@
-name: Welcome New Contributors
+name: Run Tests
 
-on:
-  pull_request_target:
-    types: [opened]
+on: [push]
 
 jobs:
-  welcome:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Greet the contributor
-        uses: actions/first-interaction@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          pr-message: "Thank you for your first pull request! We appreciate your contribution."
-
+      - uses: actions/checkout@v3
+      - name: Run Tests
+        run: echo "Running tests..."
 
